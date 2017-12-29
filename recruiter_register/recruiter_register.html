@@ -1,0 +1,36 @@
+<head>
+<title>Recruiter account creation</title>
+</head>
+<!-- multistep form -->
+<link  href="recruiter_register.css" rel="stylesheet" />    
+<link href="bootstrap.css" rel="stylesheet" />
+<form id="msform" >
+  <!-- progressbar -->
+  <ul id="progressbar" >
+    <li class="active">Account Setup</li>
+    <li>Social Profiles</li>
+    <li>Personal Details</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Create Recruiter account</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+    <input type="text" name="remail" placeholder="Email" />
+    <input type="password" name="rpass" placeholder="Password" />
+    <input type="password" name="rcpass" placeholder="Confirm Password" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+  <fieldset>
+    <h2 class="fs-title">Company Details</h2>
+    <h3 class="fs-subtitle">Fill your organisations details...</h3>
+    <input type="text" name="rcompany_name" placeholder="Company Name" />
+    <textarea name="raddress" placeholder="HeadOffice Address"></textarea>  
+    <input type="text" name="rcompany_profile" placeholder="Company Profile" />
+    <input type="text" name="rphone" placeholder="Phone" />
+    <input type="text" name="restablished" placeholder="Established Year"/>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+   <input type="submit" name="submit" class="submit action-button" value="Submit" />
+  </fieldset>
+</form>
+<!-- JAVASCRIPTS -->
+<script src="recruiter_register.js"></script>
