@@ -1,17 +1,48 @@
+
+
+<!---<?php 
+@session_start();
+if(!isset($_SESSION['username'])){
+?>
+  <li><a class="link" href="login.php" style="background:#2ecc71;border-radius:5px; color:white">LOGIN</a></li>
+<?php
+}  
+
+else {
+  $username = $_SESSION['username'];
+?>
+  <li><a class="link" href="adm_control.php">SETTINGS</a></li>
+  <li><a class="link" href="logout.php" style="background:#E74C3C;border-radius:5px; color:white">LOGOUT</a></li>
+<?php
+ }      
+?>
+---->
+
+
+
 <head>
 <title>Freelance login</title>
 </head>
 <!-- multistep form -->
 <link  href="freelance_login.css" rel="stylesheet" />    
 <link href="bootstrap.css" rel="stylesheet" />
-<form id="msform" >
+<form id="msform" method="POST" action="freelance_login2.php">
   <!-- fieldsets -->
   <fieldset>
     <h2 class="fs-title">Freelance Login</h2>
-    <input type="text" name="email" placeholder="Email" />
-    <input type="password" name="pass" placeholder="Password" />
-    <input type="password" name="cpass" placeholder="Confirm Password" />
-    <input type="button" name="next" class="next action-button" value="Next" />
+    <input type="text" name="femail" placeholder="Email" />
+    <input type="password" name="fpass" placeholder="Password" />
+    <input type="password" name="fcpass" placeholder="Confirm Password" />
+     <input type="submit" name="submit" style="width: 100px;
+  background: #27AE60;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}" class="btn btn-success" value="Submit"  />
   </fieldset>
 
 </form>
