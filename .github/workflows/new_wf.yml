@@ -1,6 +1,7 @@
 name: Manually triggered workflow
 on:
-  workflow_dispatch:
+  repository_dispatch: 
+    types: testing
 
 
 jobs:
