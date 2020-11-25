@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v1
          
       - name: simple js action
-        uses: saubermacherag/ansible-playbook-docker-action@v1.4
-        with:
-            playbookName: 'container_playbook.yml'
+        run: yum install ansible | ansible-playbook container_playbook.yml
+
+        
