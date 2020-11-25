@@ -14,7 +14,7 @@ jobs:
       - name: check out
         uses: actions/checkout@v1
          
-      - name: simple js action
-        run: yum install ansible | ansible-playbook container_playbook.yml
+      - name: Run Ansible Playbook
+        run: sudo yum install ansible | sudo ansible-playbook container_playbook.yml
 
         
