@@ -1,0 +1,21 @@
+name: Ansible Integration
+on:
+  repository_dispatch: 
+    types: testing
+
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: testing
+        run: echo The container deployment has started
+                
+      - name: check out
+        uses: actions/checkout@v1
+         
+      - name: simple js action
+        id: greet
+        uses: saubermacherag/ansible-playbook-docker-action@v1.4
+        with:
+            playbookName: 'container_playbook.yml'
