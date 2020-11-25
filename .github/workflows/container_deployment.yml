@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v1
          
       - name: simple js action
-        id: greet
         uses: saubermacherag/ansible-playbook-docker-action@v1.4
         with:
             playbookName: 'container_playbook.yml'
