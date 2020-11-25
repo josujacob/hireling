@@ -1,10 +1,12 @@
 ---
-- hosts: webserver
+- hosts: 35.239.189.90
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   become: true
   gather_facts: false
   vars:
     create_containers: 1
-    default_container_name: "{{ container_name }}"
+    default_container_name: new01
     default_container_image: ubuntu
     default_container_command: sleep 1d
   tasks:
