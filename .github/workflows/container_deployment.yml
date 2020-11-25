@@ -1,7 +1,7 @@
 name: Ansible Integration
 on:
   repository_dispatch: 
-    types: testing
+    types: Container deployment
 
 
 jobs:
