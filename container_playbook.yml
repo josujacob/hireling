@@ -1,7 +1,5 @@
 ---
 - hosts: 35.239.189.90
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
   become: true
   gather_facts: false
   vars:
@@ -9,6 +7,7 @@
     default_container_name: new01
     default_container_image: ubuntu
     default_container_command: sleep 1d
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Install aptitude using apt
       apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
