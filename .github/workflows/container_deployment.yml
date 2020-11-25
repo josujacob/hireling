@@ -15,6 +15,6 @@ jobs:
         uses: actions/checkout@v1
          
       - name: Run Ansible Playbook
-        run: sudo yum install ansible | sudo ansible-playbook container_playbook.yml
+        run: sudo apt install ansible | sudo ansible-playbook container_playbook.yml
 
         
