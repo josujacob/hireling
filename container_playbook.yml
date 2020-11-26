@@ -1,5 +1,5 @@
 ---
-- hosts: 35.230.118.86
+- hosts: 35.239.200.96
   become: true
   gather_facts: false
   vars:
