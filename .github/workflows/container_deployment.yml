@@ -18,6 +18,6 @@ jobs:
        # run: ssh-copy-id root@35.230.118.86
          
       - name: Run Ansible Playbook
-        run: sudo apt install ansible | sudo ansible-playbook container_playbook.yml --ask-become-pass
+        run: sudo apt install ansible | sudo ansible-playbook container_playbook.yml --extra-vars "ansible_sudo_pass=root123"
 
         
