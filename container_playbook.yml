@@ -1,6 +1,8 @@
 ---
 - hosts: webserver
   become: true
+  ansible_user: root
+  ansible_password: root123
   gather_facts: false
   vars:
     create_containers: 1
