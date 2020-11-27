@@ -1,0 +1,51 @@
+---
+- hosts: webserver
+  become: true
+  #ansible_user: root
+  #ansible_password: root123
+  #ansible_connection: ssh
+  #ansible_user: root
+  #ansible_ssh_pass: root123
+  gather_facts: false
+  ignore_errors: yes
+  vars:
+    create_containers: 1
+    default_container_name: new_ct_27_11_2020
+    default_container_image: ubuntu
+    default_container_command: sleep 1d
+    
+  tasks:
+    - name: Install aptitude using apt
+      apt: name=aptitude state=latest
+    - name: Install required system packages
+      apt: name={{ item }} state=latest update_cache=yes
+      loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtu
+alenv', 'python3-setuptools']
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu xenial stable
+        state: present
+        
+    - name: Update apt and install docker-ce
+      apt: update_cache=yes name=docker-ce state=latest
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Pull default Docker image
+      docker_image:
+        name: "{{ default_container_image }}"
+        source: pull
+
+    - name: Create default containers
+      docker_container:
+        name: "{{ default_container_name }}{{ item }}"
+        image: "{{ default_container_image }}"
+        command: "{{ default_container_command }}"
+        state: present
+      with_sequence: count={{ create_containers }}
