@@ -10,7 +10,7 @@
   ignore_errors: yes
   vars:
     create_containers: 1
-    default_container_name: new_ct_27_11_2020
+    default_container_name: new_ct02_27_11_2020
     default_container_image: ubuntu
     default_container_command: sleep 1d
     
