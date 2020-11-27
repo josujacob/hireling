@@ -17,6 +17,10 @@ jobs:
       - name: check ansible version
         run: ansible --version
         
+      - name: print the parsed variable value
+     # run: echo "Tags: ${{ github.event.inputs.tags }}" 
+       # run: echo "Log level: ${{ github.event.inputs.tags }}"
+        
       #- name: Authentication between control node and remote host
       #  run: ssh-copy-id root@35.239.200.96
          
