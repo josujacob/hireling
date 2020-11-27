@@ -25,4 +25,4 @@ jobs:
       #  run: ssh-copy-id root@35.239.200.96
          
       - name: Run Ansible Playbook
-        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "container_name=${{ container_name }}" -vvv
+        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=${{ container_name }}" -vvv
