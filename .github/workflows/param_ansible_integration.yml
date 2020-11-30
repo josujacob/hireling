@@ -28,4 +28,4 @@ jobs:
           echo ${{ github.event.client_payload.var }}
          
       - name: Run Ansible Playbook
-        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=${{ container_name }}" -vvv
+        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=test" -vvv
