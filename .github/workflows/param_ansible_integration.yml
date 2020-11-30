@@ -34,7 +34,7 @@ jobs:
       - name: Use current time
         env:
           TIME: "${{ steps.current-time.outputs.time }}"
-        run: echo $TIME
-          
+        run: echo "$TIME"
+                  
       - name: Run Ansible Playbook
-        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=test" -vvv
+        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=test_$TIME" -vvv
