@@ -46,6 +46,13 @@ alenv', 'python3-setuptools']
       docker_container:
         name: "{{ default_container_name }}{{ item }}"
         image: "{{ default_container_image }}"
-        command: "{{ default_container_command }}"
+        # command: "{{ default_container_command }}"
         state: present
       with_sequence: count={{ create_containers }}
+      
+    - name: Accessing Docker container
+      docker:
+        name: [container-name]
+        image: [image-ive-created-container-with-on-server]
+        state: present
+        command: docker container run -it ubuntu /bin/bash
