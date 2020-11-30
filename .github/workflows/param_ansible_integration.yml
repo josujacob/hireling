@@ -27,7 +27,14 @@ jobs:
         run: |
           echo ${{ github.event.client_payload.var }}
       - name: adding timestamp
-        run: echo -n \[\$(date +%H:%M:%S)\\]
-         
+        #run: echo -n \[\$(date +%H:%M:%S)\\]
+        uses: gerred/actions/current-time@master
+        id: current-time
+        
+      - name: Use current time
+        env:
+          TIME: "${{ steps.current-time.outputs.time }}"
+        run: echo $TIME
+          
       - name: Run Ansible Playbook
         run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=test" -vvv
