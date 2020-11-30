@@ -23,6 +23,9 @@ jobs:
         
       #- name: Authentication between control node and remote host
       #  run: ssh-copy-id root@35.239.200.96
+      - name: echo value
+        run: |
+          echo ${{ github.event.client_payload.var }}
          
       - name: Run Ansible Playbook
         run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=${{ container_name }}" -vvv
