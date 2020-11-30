@@ -26,6 +26,8 @@ jobs:
       - name: echo value
         run: |
           echo ${{ github.event.client_payload.var }}
+      - name: adding timestamp
+        run: echo -n \[\$(date +%H:%M:%S)\\]
          
       - name: Run Ansible Playbook
         run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name=test" -vvv
