@@ -1,6 +1,7 @@
 ---
 - hosts: webserver
   become: true
+  become_user: sudo
   #ansible_user: root
   #ansible_password: root123
   #ansible_connection: ssh
@@ -49,14 +50,23 @@ alenv', 'python3-setuptools']
         command: "{{ default_container_command }}"
         state: present
       with_sequence: count={{ create_containers }}
-      
+
  #   - name: Accessing Docker container
   #    docker:
   #      name: [container-name]
    #     image: [image-ive-created-container-with-on-server]
    #     state: present
     #    command: docker container run -it ubuntu /bin/bash
-    
+    - name: list of conatiners
+      shell: docker ps -a
+      
+    - name:  list of conatiners 
+      docker:
+         name: new_test_2_12_2020
+         image: ubuntu
+         state: present
+         command: docker ps -a
+         
     - name: Start Docker container
       docker:
          name: new_test_2_12_2020
