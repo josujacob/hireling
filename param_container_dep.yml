@@ -57,7 +57,12 @@ alenv', 'python3-setuptools']
    #     state: present
     #    command: docker container run -it ubuntu /bin/bash
     
-    
+    - name: Start Docker container
+      docker:
+         name: new_test_1_12_2020
+         image: ubuntu
+         state: present
+         command: docker container start new_test_1_12_2020
     - name: Accessing Docker container
       docker:
          name: new_test_1_12_2020
