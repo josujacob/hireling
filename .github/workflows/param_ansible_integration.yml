@@ -37,4 +37,5 @@ jobs:
         run: echo "$TIME"
                   
       - name: Run Ansible Playbook
-        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name='$TIME'" -vvv
+        #run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml --extra-vars "default_container_name='$TIME'" -vvv
+        run: sudo apt install ansible | sudo ansible-playbook -i hosts param_container_dep.yml -vvv  
