@@ -60,30 +60,45 @@ alenv', 'python3-setuptools']
     - name: list of containers using shell
       shell: docker ps -a
       
-    - name:  list of containers using docker module
-      docker_container:
-         name: new_test_2_12_2020
-         image: ubuntu
-         state: present
-         command: docker ps -a
+    #- name:  list of containers using docker module
+      #docker_container:
+         #name: new_test_2_12_2020
+         #image: ubuntu
+         #state: present
+         #command: docker ps -a
          
     - name: Start Docker container
-      docker_container:
-         name: new_test_2_12_2020
-         image: ubuntu
-         state: present
-         command: docker container start new_test_2_12_2020
+      shell: docker container start new_test_3_12_2020
+      
+    #- name: Start Docker container
+      #docker_container:
+         #name: new_test_2_12_2020
+         #image: ubuntu
+         #state: present
+         #command: docker container start new_test_2_12_2020
          
     - name: Accessing Docker container
-      docker_container:
-         name: new_test_2_12_2020
-         image: ubuntu
-         state: present
-         command: docker exec -it new_test_2_12_2020 /bin/bash
+      shell: docker exec -it new_test_3_12_2020 /bin/bash
+      
+    #- name: Accessing Docker container
+      #docker_container:
+         #name: new_test_2_12_2020
+         #image: ubuntu
+         #state: present
+         #command: docker exec -it new_test_2_12_2020 /bin/bash
          
-    - name: Install required mysql server
-      apt: name={{ item }} state=latest update_cache=yes
-      loop: [ 'update', 'upgrade', 'mysql-server', 'systemctl']
+    - name: Accessing Docker container
+      shell: apt update
+     
+    - name: Accessing Docker container
+      shell: apt upgrade
+      
+    - name: Accessing Docker container
+      shell: apt-get install mysql-server      
+      
+    #- name: Install required mysql server
+      #apt: name={{ item }} state=latest update_cache=yes
+      #loop: [ 'update', 'upgrade', 'mysql-server', 'systemctl']
        
        
     - name: Start Mysql server
