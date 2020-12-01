@@ -75,7 +75,7 @@ alenv', 'python3-setuptools']
          command: docker container start new_test_2_12_2020
          
     - name: Accessing Docker container
-      docker_conatiner:
+      docker_container:
          name: new_test_2_12_2020
          image: ubuntu
          state: present
