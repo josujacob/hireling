@@ -87,13 +87,13 @@ alenv', 'python3-setuptools']
          #state: present
          #command: docker exec -it new_test_2_12_2020 /bin/bash
          
-    - name: Accessing Docker container
+    - name: Run update command
       shell: apt update
      
-    - name: Accessing Docker container
+    - name: Run update command
       shell: apt upgrade
       
-    - name: Accessing Docker container
+    - name: Install mysql-server
       shell: apt-get install mysql-server      
       
     #- name: Install required mysql server
@@ -106,3 +106,10 @@ alenv', 'python3-setuptools']
        
     - name: Login to Mysql Server
       command: mysql
+      
+    - name: Create Mysql database
+      shell: create database test_project;
+      
+    - name: View the current mysql schemas/databases
+      shell: show schemas;
+     
