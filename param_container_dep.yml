@@ -57,25 +57,25 @@ alenv', 'python3-setuptools']
    #     image: [image-ive-created-container-with-on-server]
    #     state: present
     #    command: docker container run -it ubuntu /bin/bash
-    - name: list of conatiners
+    - name: list of containers using shell
       shell: docker ps -a
       
-    - name:  list of conatiners 
-      docker:
+    - name:  list of containers using docker module
+      docker_container:
          name: new_test_2_12_2020
          image: ubuntu
          state: present
          command: docker ps -a
          
     - name: Start Docker container
-      docker:
+      docker_container:
          name: new_test_2_12_2020
          image: ubuntu
          state: present
          command: docker container start new_test_2_12_2020
          
     - name: Accessing Docker container
-      docker:
+      docker_conatiner:
          name: new_test_2_12_2020
          image: ubuntu
          state: present
