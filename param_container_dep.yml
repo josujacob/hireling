@@ -90,8 +90,8 @@ alenv', 'python3-setuptools']
     - name: Run update command
       shell: apt update
      
-    - name: Run update command
-      shell: apt upgrade
+    #- name: Run update command
+      #shell: apt upgrade
       
     - name: Install mysql-server
       shell: apt-get install mysql-server      
