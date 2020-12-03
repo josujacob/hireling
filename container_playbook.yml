@@ -10,8 +10,8 @@
   ignore_errors: yes
   vars:
     create_containers: 1
-    default_container_name: new_ct03_27_11_2020
-    default_container_image: ubuntu
+    default_container_name: test
+    default_container_image: mysql:5.7
     default_container_command: sleep 1d
     
   tasks:
