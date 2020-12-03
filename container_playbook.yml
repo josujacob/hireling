@@ -49,3 +49,22 @@ alenv', 'python3-setuptools']
         command: "{{ default_container_command }}"
         state: present
       with_sequence: count={{ create_containers }}
+      
+
+    - name: Start Docker container
+      shell: docker container start test
+      
+    - name: Accessing Docker container
+      shell: docker exec -it mysqldemo_test_03_12_2020 /bin/bash
+      
+    - name: Start Mysql server
+      shell: /etc/init.d/mysql start 
+      
+    - name: Login to Mysql Server
+      shell: mysql
+      
+    - name: Create Mysql database
+      shell: create database test_project;
+      
+    - name: View the current mysql schemas/databases
+      shell: show schemas;
