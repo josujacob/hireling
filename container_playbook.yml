@@ -76,8 +76,16 @@ alenv', 'python3-setuptools']
    # - name: Login to Mysql Server
   #    shell: mysql
       
-    - name: Create Mysql database
-      shell: create database test_project;
       
-    - name: View the current mysql schemas/databases
-      shell: show schemas;
+    - name: Create Mysql database
+      docker_container:
+        name: "{{ default_container_name }}"
+        image: "{{ default_container_image }}"
+        command: create database test_project;
+        state: present   
+        
+    #- name: Create Mysql database
+      #shell: create database test_project;
+      
+    #- name: View the current mysql schemas/databases
+      #shell: show schemas;
