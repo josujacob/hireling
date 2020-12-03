@@ -65,7 +65,7 @@ alenv', 'python3-setuptools']
       docker_container:
         name: "{{ default_container_name }}"
         image: "{{ default_container_image }}"
-        command: /etc/init.d/mysql start
+        command: mysql
         state: present      
    # - name: Accessing Docker container
      # shell: docker exec -it mysqldemo /bin/bash
