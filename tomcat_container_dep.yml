@@ -1,0 +1,47 @@
+#!/usr/bin/ansible-playbook
+ - name: Playbook to install docker
+   hosts: remote
+   become: yes
+   gather_facts: true
+   tasks:
+    - name: Updating repos in RedHat
+      yum:
+       name: "*"
+       state: latest
+    - name: Install required system packages
+      yum:
+       name: "{{item}}"
+       state: latest
+      loop:
+       - yum-utils
+       - curl
+       - python*
+       - java-1.8.0-openjdk
+    - name: Add docker to yum repository
+      get_url:
+       url: https://download.docker.com/linux/centos/docker-ce.repo
+       dest: /etc/yum.repos.d/docer-ce.repo
+    - name: Installing Docker
+      yum:
+       name: docker
+       state: present
+    - name: starting and enabling docker service
+      service:
+       name: docker
+       state: started
+       enabled: yes
+    - name: Capturing details
+      shell: "docker --version"
+      register: docker_details
+    - set_fact:
+       docker_info: "{{docker_details.stdout}}"
+    - name: Displaying Installed version
+      debug:
+       msg:
+        - Installed {{docker_info}}
+    - name: pulling apache httpd image from docker hub
+      shell: "docker run -itd --name tomcat_httpd -p 2020:80 docker.io/httpd"
+      ignore_errors: yes
+    - name: pulling nginx webserver image from docker hub
+      shell: "docker run -itd --name nginx_web -p 2021:80 docker.io/nginx"
+      ignore_errors: yes
