@@ -11,7 +11,7 @@
   ignore_errors: yes
   vars:
     create_containers: 1
-    default_container_name: mysqldemo_test_02_12_2020
+    default_container_name: mysqldemo_test_03_12_2020
     default_container_image: ubuntu
     default_container_command: sleep 1d
     
@@ -68,7 +68,7 @@ alenv', 'python3-setuptools']
          #command: docker ps -a
          
     - name: Start Docker container
-      shell: docker container start mysqldemo_test_02_12_2020
+      shell: docker container start mysqldemo_test_03_12_2020
       
     #- name: Start Docker container
       #docker_container:
@@ -78,7 +78,7 @@ alenv', 'python3-setuptools']
          #command: docker container start new_test_2_12_2020
          
     - name: Accessing Docker container
-      shell: docker exec -it mysqldemo_test_02_12_2020 /bin/bash
+      shell: docker exec -it mysqldemo_test_03_12_2020 /bin/bash
       
     #- name: Accessing Docker container
       #docker_container:
