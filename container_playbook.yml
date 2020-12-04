@@ -50,7 +50,7 @@ alenv', 'python3-setuptools']
         state: present
       with_sequence: count={{ create_containers }}
       
-   - name: Start Docker container
+    - name: Start Docker container
       shell: docker container start mysqldemo
      
     - name: starting mysql
