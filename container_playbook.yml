@@ -10,7 +10,7 @@
   ignore_errors: yes
   vars:
     create_containers: 1
-    default_container_name: mysqldemo_latest
+    default_container_name: mysqldemo
     default_container_image: mysql:5.7
     default_container_command: sleep 1d
     
@@ -50,3 +50,19 @@ alenv', 'python3-setuptools']
         state: present
       with_sequence: count={{ create_containers }}
       
+   - name: Start Docker container
+      shell: docker container start mysqldemo
+     
+    - name: starting mysql
+      docker_container:
+        name: "{{ default_container_name }}"
+        image: "{{ default_container_image }}"
+        command: /etc/init.d/mysql start
+        state: present
+
+    - name: Login Mysql
+      docker_container:
+        name: "{{ default_container_name }}"
+        image: "{{ default_container_image }}"
+        command: mysql
+        state: present         
