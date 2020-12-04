@@ -44,7 +44,7 @@ alenv', 'python3-setuptools']
 
     - name: Create default containers
       docker_container:
-        name: "{{ default_container_name }}""{{ item }}"
+        name: "{{ default_container_name }}{{ item }}"
         image: "{{ default_container_image }}"
         command: "{{ default_container_command }}"
         state: present
