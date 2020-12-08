@@ -1,0 +1,38 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: no
+  tasks:
+    - name: create build directory
+      file:
+        path: /root/mysql
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+    - name: copy Dockerfile
+      copy:
+        src: /root/Dockerfile
+        dest: /root/mysql/
+        owner: root
+        group: root
+        mode: '0777'
+    - name: copy sql scripts
+      copy:
+        src: /root/sql-scripts
+        dest: /root/mysql/
+        owner: root
+        group: root
+        mode: '0777'
+    - name: build container image
+      shell: docker build -t mysql /root/mysql/
+    - name: create docker container
+      docker_container:
+        name: mysql-container
+        image: mysql
+    - name: Check if container is running
+      shell: docker ps
+      register: container_info
+    - name: List Container info
+      debug: 
+        msg: "{{container_info.stdout}}"
