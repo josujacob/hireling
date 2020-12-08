@@ -2,6 +2,7 @@
 - hosts: webserver
   become: true
   gather_facts: no
+  ignore_errors: yes
   tasks:
     - name: create build directory
       file:
