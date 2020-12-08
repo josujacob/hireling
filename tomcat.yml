@@ -1,29 +1,13 @@
 ---
-- hosts: all
+- hosts: webserver
   become: true
   gather_facts: no
   tasks:
-    - name: create build directory
-      file:
-        path: /root/tomcat
-        state: directory
-        owner: root
-        group: root
-        mode: '0755'
-    - name: copy Dockerfile
-      copy:
-        src: /home/devops/tomcat/
-        dest: /root/tomcat/
-        owner: root
-        group: root
-        mode: '0777'
-    - name: build container image
-      shell: docker build -t tomcat /root/tomcat/
     - name: create docker container
       docker_container:
         name: tomcat-container
         published_ports: all
-        image: tomcat
+        image: archanasuri/digialaitomcat
     - name: Check if container is running
       shell: docker ps
       register: container_info
