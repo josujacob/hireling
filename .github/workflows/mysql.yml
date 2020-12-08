@@ -1,14 +1,14 @@
 name: Ansible Integration
 on:
   repository_dispatch: 
-    types: mysql_tomcat
+    types: Param Container deployment
 
 
 jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Container deployment
+      - name: Param Container deployment
         run: echo The container deployment has started
                 
       - name: check out
