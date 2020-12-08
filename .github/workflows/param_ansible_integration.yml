@@ -1,7 +1,7 @@
 name: Parameterized Ansible Integration
 on:
   repository_dispatch: 
-    types: Param Container deployment
+    #types: Param Container deployment
 
 
 jobs:
