@@ -1,0 +1,24 @@
+name: Ansible Integration
+on:
+  repository_dispatch: 
+    types: Container deployment
+
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Container deployment
+        run: echo The container deployment has started
+                
+      - name: check out
+        uses: actions/checkout@v1
+      
+      - name: check ansible version
+        run: ansible --version
+        
+      #- name: Authentication between control node and remote host
+      #  run: ssh-copy-id root@35.239.200.96
+         
+      - name: Run Ansible Playbook
+        run: sudo apt install ansible | sudo ansible-playbook -i hosts mysql.yml -vvv  
