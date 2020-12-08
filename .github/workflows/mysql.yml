@@ -1,7 +1,7 @@
 name: Ansible Integration
 on:
   repository_dispatch: 
-    types: mysql_tomcat
+    types: Param Container deployment
 
 
 jobs:
