@@ -1,14 +1,14 @@
 name: Parameterized Ansible Integration
 on:
   repository_dispatch: 
-    #types: Param Container deployment
+
 
 
 jobs:
  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Param Container deployment
+
         run: echo The container deployment has started
                 
       - name: check out
