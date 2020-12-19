@@ -10,7 +10,7 @@
     - name: Conditional logic
       debug:
         msg: "mysql is inside {{ check }}" 
-      when: "'mysql' in {{ check }}"          
+      when: 'mysql' in check         
   
     - name: create docker container
       docker_container:
