@@ -1,7 +1,7 @@
 name: AnsibleIntegration
 env: 
   Tool: mysql
-  Name:  ${{ github.event.AnsibleIntegration.environment }}
+
   
 on:
   repository_dispatch: 
@@ -15,9 +15,9 @@ jobs:
       - name: Param Container deployment
         run: echo The container deployment has started
         
-      - name: Param Container deployment
+      - name:  Dynamic inpuut values
         #run: echo ${{env.Tool}}
-        run: echo $Name
+        run: echo ${{ github.event.client_payload.test }}
                 
       - name: check out
         uses: actions/checkout@v1
