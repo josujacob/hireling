@@ -3,6 +3,10 @@
   become: true
   gather_facts: no
   tasks:
+    - name: testing the variables
+      debug:
+        msg: "{{ check }}" 
+  
     - name: create docker container
       docker_container:
         name: tomcat-container
