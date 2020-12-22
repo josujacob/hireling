@@ -1,7 +1,4 @@
 name: AnsibleIntegration
-env: 
-  Tool: mysql
-
   
 on:
   repository_dispatch: 
